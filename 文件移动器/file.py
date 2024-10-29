@@ -63,6 +63,13 @@ class FileDialogDemo:
 
 
 def rename_file(filename):
+    replace_set = {"-C", "-c"}
+    for pattern in replace_set:
+        filename = filename.replace(pattern, "")
+
+    if "@" in filename:
+        # 从最后一个 '@' 开始分割，只保留 '@' 后的部分
+        _, _, filename = filename.rpartition('@')
     return filename
 
 
