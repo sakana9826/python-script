@@ -52,7 +52,7 @@ class FileDialogDemo:
             if os.path.isfile(file_path):
                 # 判断是否需要重命名
                 if self.rename_files.get():
-                    new_filename = self.rename_file(filename)
+                    new_filename = rename_file(filename)
                     target_path = os.path.join(self.target_file_path, new_filename)
                 else:
                     target_path = os.path.join(self.target_file_path, filename)
@@ -61,10 +61,9 @@ class FileDialogDemo:
             elif os.path.isdir(file_path):
                 self._move_files_in_directory(file_path)
 
-    def rename_file(self, filename):
-        # 未实现的重命名逻辑，当前返回原文件名
-        # 你可以在这里添加重命名规则，例如增加时间戳、序号等
-        return filename
+
+def rename_file(filename):
+    return filename
 
 
 # 创建主窗口并运行应用
